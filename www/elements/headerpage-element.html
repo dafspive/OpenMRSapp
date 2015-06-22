@@ -1,0 +1,50 @@
+<link href="../bower_components/core-icon-button/core-icon-button.html" rel="import">
+<link href="../bower_components/core-toolbar/core-toolbar.html" rel="import">
+<link href="../bower_components/core-header-panel/core-header-panel.html" rel="import">
+
+<polymer-element name="headerpage-element">
+
+  <template>
+    <style>    
+      #core_animated_pages {
+        left: 1130px;
+        top: 350px;
+        width: 420px;
+        height: 582px;
+        overflow: hidden;
+        background-color: rgb(238, 238, 238);
+      }
+      #core_header_panel {
+        left: 210px;
+        top: 40px;
+        width: 300px;
+        height: 400px;
+        position: absolute;
+      }
+      #core_toolbar {
+        color: rgb(255, 255, 255);
+        background-color: rgb(79, 125, 201);
+      }
+      #section {
+        background: linear-gradient(rgb(214, 227, 231), lightblue);
+        height: 1000px;
+      }
+    </style>
+    <core-header-panel mode="standard" id="core_header_panel">
+      <core-toolbar id="core_toolbar">
+        <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
+        <div id="div">Header</div>
+      </core-toolbar>
+      <section id="section"></section>
+    </core-header-panel>
+  </template>
+
+  <script>
+
+    Polymer({
+      
+    });
+
+  </script>
+
+</polymer-element>

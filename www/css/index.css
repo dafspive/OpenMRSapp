@@ -19,6 +19,29 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
+html {
+    height: 100%;
+  margin: 0;
+}
+core-header-panel {
+  height: 100%;
+}
+body {
+  font-family: sans-serif;
+}
+core-header-panel {
+  background: white;
+}
+core-toolbar {
+  background-color: #03A9F4;
+}
+p {
+  margin: 20px;
+  padding: 80px 20px;
+  border-radius: 20px;
+  background-color: #eee;
+}
+
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
