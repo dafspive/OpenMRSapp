@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 1. Load platform support before any code that touches the DOM. -->
+        <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+        
+        <!-- 2. Load the component using an HTML Import -->
+        <link rel="import" href="../www/bower_components/core-toolbar/core-toolbar.html">
+        <link rel="import" href="../www/bower_components/core-header-panel/core-header-panel.html">
+        <link rel="import" href="../www/bower_components/core-icons/core-icons.html">
+        <link rel="import" href="../www/bower_components/paper-button/paper-button.html">
+        <link rel="import" href="../www/bower_components/paper-input/paper-input.html">
+        <link rel="import" href="../www/bower_components/paper-input/paper-input-decorator.html">
+        
+        <script src="js/main.js" type="text/javascript"></script>
+    </head>
+    <!-- use fullbleed attribute to specify
+     the body should fill the viewport -->
+    <body fullbleed vertical layout unresolved>
+        <core-header-panel flex>
+            <core-toolbar id="mainheader">
+                <!--
+                <paper-icon-button id="navicon"
+                    icon="arrow-back"></paper-icon-button>
+                -->
+                <span flex>OpenMRS App</span>
+                <!--
+                <paper-icon-button id="searchbutton"
+                icon="search"></paper-icon-button>
+                -->
+            </core-toolbar>
+            <paper-input label="User Name"></paper-input>
+            <paper-input-decorator label="Password">
+                <input is="core-input">
+            </paper-input-decorator>
+            <paper-button raised onclick="Login()">Log in</paper-button>
+            <p>Sample content.</p>
+            <p>Sample content.</p>
+        </core-header-panel>
+    </body>
+
+</html>
+
