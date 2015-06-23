@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- 1. Load platform support before any code that touches the DOM. -->
-        <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
         
         <!-- 2. Load the component using an HTML Import -->
         <link rel="import" href="../www/bower_components/core-toolbar/core-toolbar.html">
         <link rel="import" href="../www/bower_components/core-header-panel/core-header-panel.html">
-        <link rel="import" href="../www/bower_components/core-icons/core-icons.html">
         <link rel="import" href="../www/bower_components/paper-button/paper-button.html">
         <link rel="import" href="../www/bower_components/paper-input/paper-input.html">
         <link rel="import" href="../www/bower_components/paper-input/paper-input-decorator.html">
         
-        <script src="js/main.js" type="text/javascript"></script>
+        
     </head>
     <!-- use fullbleed attribute to specify
      the body should fill the viewport -->
-    <body fullbleed vertical layout unresolved>
+    <body onload="checkForm()" fullbleed vertical layout unresolved>
         <core-header-panel flex>
             <core-toolbar id="mainheader">
-                <!--
-                <paper-icon-button id="navicon"
-                    icon="arrow-back"></paper-icon-button>
-                -->
                 <span flex>OpenMRS App</span>
-                <!--
-                <paper-icon-button id="searchbutton"
-                icon="search"></paper-icon-button>
-                -->
             </core-toolbar>
-            <paper-input label="User Name"></paper-input>
-            <paper-input-decorator label="Password">
-                <input is="core-input">
-            </paper-input-decorator>
-            <paper-button raised onclick="Login()">Log in</paper-button>
-            <p>Sample content.</p>
-            <p>Sample content.</p>
+            <div class="app">
+            
+                <h1 style="text-align: center">Please login to your patient record</h1><br/>
+                <div id="loginForm" style="text-align:center">
+                    <input type="text" placeholder="Username" name="usernameField" id="usernameField" /> <br/> <br/>
+                    <input type="password" placeholder="Password" name="passwordField" id="passwordField" /> <br/> <br/>
+                    <paper-button raised name="loginButton" value="Login" onclick="doPwLogin()">Log in</paper-button>
+                    <div id="pwError" style="text-align:center">
+                        <h2 style="text-align: center; color: red">Invalid User or password</h2><br/>
+                    </div>
+                </div>
+                <div id="pinForm" style="text-align:center">
+                    <input type="text" placeholder="Enter PIN" id="pinField" /> <br/> <br/>
+                    <paper-button raised name="pinButton" value="Login" onclick="doPinLogin()">Log in</paper-button>
+                    <div id="pinError" style="text-align:center">
+                        <h2 style="text-align: center; color: red">Invalid Pin</h2><br/>
+                    </div>
+                </div>
+            </div>
         </core-header-panel>
+        
+        <!-- Put scripts at bottom -->
+        <!-- Needed for onDeviceReady event -->
+        <script type="text/javascript" src="cordova.js"></script>
+        
+        <!-- main js -->
+        <script type="text/javascript" src="js/main.js"></script>
+        
+        <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        
     </body>
 
 </html>
