@@ -6,62 +6,63 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <!-- 1. Load platform support before any code that touches the DOM. -->
-        <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
         
         <!-- 2. Load the component using an HTML Import -->
         <link rel="import" href="../www/bower_components/core-toolbar/core-toolbar.html">
         <link rel="import" href="../www/bower_components/core-header-panel/core-header-panel.html">
-        <link rel="import" href="../www/bower_components/core-icons/core-icons.html">
         <link rel="import" href="../www/bower_components/paper-button/paper-button.html">
         <link rel="import" href="../www/bower_components/paper-input/paper-input.html">
-        <link rel="import" href="../www/bower_components/paper-input/paper-input-decorator.html">
         
-        <script src="js/main.js" type="text/javascript"></script>
     </head>
     <!-- use fullbleed attribute to specify
      the body should fill the viewport -->
-    <body fullbleed vertical layout unresolved>
-        
-        
+    <body onload="getPatData()" fullbleed vertical layout unresolved>
         <core-header-panel flex>
             <core-toolbar id="mainheader">
-                <!--
-                <paper-icon-button id="navicon"
-                    icon="arrow-back"></paper-icon-button>
-                -->
                 <span flex>OpenMRS App</span>
-                <!--
-                <paper-icon-button id="searchbutton"
-                icon="search"></paper-icon-button>
-                -->
             </core-toolbar>
+            <br/>
             <div id="display">
                 <label for="name">Patient</label>
-                <paper-input label="User Name"></paper-input>
+                <input type="text" name="patNameField" id="patNameField" />
             </div>
-            
+            <br/>
             <div id="gender">
                 <label for="lbgender">Gender</label>
-                <paper-input label="gender"></paper-input>
+                <input type="text" name="genderField" id="genderField" />
             </div>
-            
+            <br/>
             <div id="age">
                 <label for="lbage">Age</label>
-                <label for="lbagecal">43</label>
+                <input type="text" name="calAgeField" id="calAgeField" /><br/><br/>
                 <label for="lbbirthdate">Birth date</label>
-                <paper-input label="birthdate"></paper-input>
+                <input type="text" name="birthdateField" id="birthdateField" />
+                <br/><br/>
             </div>
             
             <div id="location">
-                <label for="lbloc">Location</label>
-                <paper-input label="current location"></paper-input>
+                 
+                <label for="lbloc">Location</label><br/>
+                <div id="geolocation"></div>
+                <br/><br/>
+                
             </div>
-            <paper-button raised onclick="getLocation()">Get location</paper-button>
+            <paper-button raised onclick="locButtonClick()">Get location</paper-button>
+            <paper-button raised onclick="takePic()">Picture</paper-button>
+            <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
             
-            <div id="myDiv"></div>
-            <div id="disp"></div>
         </core-header-panel>
+    
+        <!-- Put scripts at bottom -->
+        <!-- Needed for onDeviceReady event -->
+        <script type="text/javascript" src="cordova.js"></script>
+        
+        <!-- main js -->
+        <script type="text/javascript" src="js/main.js"></script>
+        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+        
     </body>
 
 </html>
